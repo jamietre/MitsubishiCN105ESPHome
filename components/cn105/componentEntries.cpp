@@ -46,7 +46,10 @@ void CN105Climate::loop() {
             this->checkPendingWantedSettings();
         } else {
             if (this->loopCycle.isCycleRunning()) {                         // if we are  running an update cycle
-                this->loopCycle.checkTimeout(this->update_interval_);
+                if (this->loopCycle.checkTimeout(this->update_interval_)) {
+                    ESP_LOGD(LOG_SETTINGS_TAG, "Terminating cycle after timeout");
+                    this->terminateCycle();
+                }
             } else { // we are not running a cycle
                 if (this->loopCycle.hasUpdateIntervalPassed(this->get_update_interval())) {
                     this->buildAndSendRequestsInfoPackets();            // initiate an update cycle with this->cycleStarted();
