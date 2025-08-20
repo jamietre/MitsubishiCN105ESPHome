@@ -27,7 +27,6 @@ namespace esphome {
             this->update();
         }
 
-        std::string HpUpTimeConnectionSensor::unique_id() { return get_mac_address() + "-uptime-hp_connection"; }
         void HpUpTimeConnectionSensor::dump_config() { LOG_SENSOR("", "Uptime Connection Sensor", this); }
 
     }  // namespace uptime

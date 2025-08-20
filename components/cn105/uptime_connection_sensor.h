@@ -6,7 +6,6 @@ namespace esphome {
         class HpUpTimeConnectionSensor : public UptimeSecondsSensor {
         public:
             void update() override;
-            std::string unique_id() override;
             void dump_config() override;
 
             void start();           // connection established
