@@ -9,7 +9,6 @@ namespace esphome {
         class HpUpTimeConnectionSensor : public sensor::Sensor, public PollingComponent {
         public:
             void update() override;
-            std::string unique_id();
             void dump_config() override;
 
             void start();           // connection established
